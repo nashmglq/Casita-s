@@ -27,6 +27,136 @@
     <title>Casita's</title>
   </head>
 
+  <style>
+    body {
+    }
+
+    .navbar {
+      background-color: rgb(
+        104,
+        5,
+        5
+      ); /* Semi-transparent background by default */
+      transition: background-color 0.3s ease;
+      font-weight: 900;
+      text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000, 0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
+    }
+    .navbar .nav-link {
+      color: #ffffff; /* Ensure nav links are visible */
+    }
+
+    .navbar .nav-link:hover {
+      color: #ffffff; /* Highlight color on hover */
+    }
+    .navbar .nav-link.about {
+      color: #000000; /* Specific color for About Us */
+    }
+
+    .navbar .nav-link.menu {
+      color: #000000; /* Specific color for Menu */
+    }
+
+    .navbar .nav-link.contact {
+      color: #32cd32; /* Specific color for Contact Us */
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%; /* Set maximum width of the container */
+      margin: 0 auto; /* Center the container */
+    }
+
+    .image-container img {
+      width: 100%; /* Make image responsive */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-container .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white; /* Text color */
+      font-size: 2rem; /* Text size */
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .overlay-text {
+        font-size: 1.5rem; /* Smaller text size for tablets */
+        padding: 15px; /* Adjust padding */
+      }
+    }
+
+    @media (max-width: 576px) {
+      .overlay-text {
+        font-size: 1.2rem; /* Even smaller text size for phones */
+        padding: 10px; /* Adjust padding */
+      }
+    }
+    @media (max-width: 375px) {
+      .overlay-text {
+        font-size: 1rem; /* Further reduce text size */
+        padding: 8px; /* Reduce padding */
+        width: 95%; /* Increase width for small screens */
+      }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.149);
+      border: 3px solid #000;
+    }
+    .front-pic-container {
+      display: inline-block; /* Allows transform to work properly */
+      position: relative;
+      z-index: 2; /* Ensure the image is properly positioned */
+      width: 100%; /* Ensure the container scales with its parent */
+      height: 100%; /* Ensure the container scales with its parent */
+    }
+
+    .front-pic {
+      border: 5px solid #000; /* Thick black border */
+      padding: 10px; /* Space between the image and border */
+      background: #fff200;
+      box-shadow: 0 0 0 8px #fff; /* White border effect outside the black border */
+      transform: rotate(5deg); /* Rotate the image by 5 degrees */
+      transform-origin: center; /* Rotate around the center of the element */
+      display: block; /* Remove extra space below the image */
+      width: 100%; /* Ensure image scales with the container */
+      height: 100%; /* Ensure image scales with the container */
+      object-fit: cover; /* Cover the container without distortion */
+    }
+    .second-pic-container {
+      display: inline-block; /* Allows transform to work properly */
+      position: relative;
+      z-index: 2; /* Ensure the image is properly positioned */
+      width: 100%; /* Ensure the container scales with its parent */
+      height: 100%; /* Ensure the container scales with its parent */
+    }
+
+    .second-pic {
+      border: 5px solid #000; /* Thick black border */
+      padding: 10px; /* Space between the image and border */
+      background: #4ba657;
+      box-shadow: 0 0 0 8px #fff; /* White border effect outside the black border */
+      transform: rotate(-5deg); /* Rotate the image by 5 degrees */
+      transform-origin: center; /* Rotate around the center of the element */
+      display: block; /* Remove extra space below the image */
+      width: 100%; /* Ensure image scales with the container */
+      height: 100%; /* Ensure image scales with the container */
+      object-fit: cover; /* Cover the container without distortion */
+    }
+    .highlight {
+      font-weight: bold; /* Makes the text bold */
+      font-size: 1.5em;
+    }
+  </style>
   <body>
     <!--Navbar class is the actual navbar, with the light(remove underline) and the size-->
     <nav
@@ -72,7 +202,80 @@
       </div>
       <!--UP TO HERE-->
     </nav>
+    <!-- Starter -->
+    <div class="image-container">
+      <img src="images/bg1.jpg" alt="Background Image" />
+      <div class="overlay-text">
+        <h1 class="border-bottom">Story Of Casita's Birria Kitchen</h1>
+      </div>
+    </div>
+    <!-- Main Info -->
+    <div class="container-fluid">
+      <!-- First Part -->
+      <div
+        class="row p-3 justify-content-between mt-2"
+        style="background-color: #e17a09"
+      >
+        <div class="col-md-5">
+          <div class="front-pic-container">
+            <img
+              src="images/About-us-Casitas.jpg"
+              alt="Casita's Birria Kitchen"
+              class="front-pic img-fluid h-100"
+            />
+          </div>
+        </div>
+        <div class="col-md-7 text-center">
+          <div class="card p-4 h-100 d-flex justify-content-center">
+            <h1 class="text-justify text-left">
+              <span class="highlight"
+                >We started Casita's simply because we love Birria Tacos.</span
+              >
+            </h1>
+            <h4 class="text-justify text-left">
+              We made our own version of the Birria Tacos from scratch and it
+              wasn't just developed overnight. It took us some time to get the
+              version of Birria Tacos that we serve now. The crispy tortilla,
+              flavorful beef, melted cheese, fresh cilantro, onions, and the hot
+              consomme that we pour over the tacos - every bits of the Birria
+              Tacos was family approved!
+            </h4>
+          </div>
+        </div>
+      </div>
 
+      <div
+        class="row p-3 justify-content-between mt-2"
+        style="background-color: #ff4a18"
+      >
+        <div class="col-md-7 text-center">
+          <div class="card p-4 h-100 d-flex justify-content-center">
+            <h1 class="text-justify text-left">
+              <span class="highlight"
+                >We had a fair share of challenges and small wins throughout
+                this journey
+              </span>
+            </h1>
+            <h4 class="text-justify text-left">
+              but we wouldn't have gotten this far without the unwavering
+              support of everyone - and for that, we are forever thankful. It is
+              beyond our wildest dreams to have this opportunity where we can
+              share Casita's to everyone.
+            </h4>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="second-pic-container">
+            <img
+              src="images/About-us-Casitas.jpg"
+              alt="Casita's Birria Kitchen"
+              class="second-pic img-fluid h-100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

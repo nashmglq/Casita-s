@@ -41,7 +41,7 @@ const postEmail = async (req, res) => {
     await sendMail(
       email,
       "Here is your Contact Receipt",
-      `Thank you for Contacting Casita's\nSubject: ${subject}\nMessage: ${message}`
+      `Thank you for Contacting Casita's 🌮🍟\n\nSubject: ${subject}\nMessage: ${message}`
     );
 
     res.redirect("/contact?success=true");
