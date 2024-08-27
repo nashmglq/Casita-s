@@ -1,47 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <!-- jQuery and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 
-    <title>Casita's</title>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Casita's Menu</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .section-title {
+        text-align: left;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #e17a09;
+        padding-bottom: 10px;
+      }
+
+      /* Card Styles */
+      .card {
+        border-radius: 20px;
+        background-color: #f9f4ef;
+        overflow: hidden;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 450px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-img-top {
+        border-radius: 20px 20px 0 0;
+        width: 100%;
+        height: 55%;
+        object-fit: cover;
+        transition: transform 0.2s;
+      }
+
+      .card-body {
+        padding: 20px;
+        height: 45%;
+        text-align: left;
+        background-color: #f9f4ef;
+      }
+
+      .card-body h5 {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .card-body h6 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .card-body p {
+        font-size: 1rem;
+        color: #555;
+        margin-top: 10px;
+      }
+
+      /* Menu Item Container */
+      .menu-item-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .menu-item {
+        flex: 1 1 30%;
+        margin: 15px;
+        max-width: calc(33.333% - 30px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .menu-item {
+          flex: 1 1 100%;
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+      .walking-tacos-container {
+        display: flex;
+        justify-content: center; /* Center items within the container */
+        gap: 30px; /* Adjust this value to control the spacing between cards */
+      }
+
+      .walking-tacos-container .menu-item {
+        flex: 1 1 30%; /* Maintain the same flex properties */
+        margin: 0; /* Remove margin to get them closer */
+      }
+
+      /* Navbar Styles */
+      .navbar-brand img {
+        max-height: 65px; /* Maintains the height */
+        margin-left: 2rem; /* Keeps the left margin */
+        background-color: white; /* Background color remains white */
+        border-radius: 10px; /* Adjust this value for the roundness of the edges */
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        margin-left: 15px;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ff9800;
+      }
+
+      /* Carousel Control Buttons */
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 50px; /* Set a specific width for the button */
+        height: 50px; /* Set a specific height for the button */
+        border-radius: 50%;
+        background-color: #e17a09; /* Button color */
+        border: none; /* Remove any borders */
+        position: absolute; /* Ensure absolute positioning */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Center adjustment */
+      }
+
+      /* Specific positioning for left and right buttons */
+      .carousel-control-prev {
+        left: -30px; /* Adjust this value to move the button left */
+      }
+
+      .carousel-control-next {
+        right: -30px; /* Adjust this value to move the button right */
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: transparent; /* Change the icon background if needed */
+        border-radius: 50%; /* Optional: to maintain the circular shape of the icon */
+      }
+
+      .footer {
+        background-color: #343a40; /* Change to your desired footer background color */
+        color: white; /* Change text color for better contrast */
+      }
+
+      .footer a {
+        color: #e17a09; /* Change the link color if needed */
+      }
+
+      .footer a:hover {
+        text-decoration: underline; /* Optional: add underline on hover */
+      }
+    </style>
   </head>
 
   <body>
-    <!--Navbar class is the actual navbar, with the light(remove underline) and the size-->
-    <nav
-      class="navbar navbar-expand-lg navbar-light d-flex justify-content-between"
-    >
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #c0000b">
       <a class="navbar-brand" href="/">
-        <img
-          src="images/logo.png"
-          alt="casita's logo"
-          class="img-fluid"
-          style="max-height: 60px"
-        />
+        <img src="images/logo.png" alt="Casita's logo" class="img-fluid" />
       </a>
-
-      <!--THIS PART SHOW THE NAVBAR WHEN RESOLUTION IS CHANGE-->
       <button
         class="navbar-toggler"
         type="button"
@@ -53,40 +200,1188 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!--UP TO HERE-->
-
-      <!--Collapse navbar shows the list on a better way-->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <!--mr means margin right side, ml margin left side-->
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="/about">About us</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/menu">Menu</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#starters">STARTER'S</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact Us</a>
+            <a class="nav-link" href="#walking-tacos">WALKING TACO'S</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#everything-birria">EVERYTHING BIRRIA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#platters">PLATTERS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#drinks">DRINKS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#desserts">DESSERTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dips">DIPS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#addons">ADD ONS</a>
           </li>
         </ul>
       </div>
-      <!--UP TO HERE-->
     </nav>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Smooth Scrolling Script -->
+    <script>
+      document.querySelectorAll("a.nav-link").forEach((anchor) => {
+        anchor.addEventListener("click", function (event) {
+          event.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+      });
+    </script>
+
+    <!-- Menu Section - Starters -->
+    <div class="container mt-5" id="starters">
+      <h1 class="section-title">Starter's</h1>
+
+      <!-- Desktop View -->
+      <div class="d-none d-lg-flex menu-item-container">
+        <div class="menu-item">
+          <div class="card">
+            <img
+              src="images/Elotes.png"
+              class="card-img-top"
+              alt="Item 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Elotes</h5>
+              <p class="card-text">
+                Corn ribs in our special mix of spices. A classic Mexican street
+                snack.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="card">
+            <img src="images/item2.png" class="card-img-top" alt="Item 2" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Poppers</h5>
+              <p class="card-text">
+                Crispy bite-sized pieces of boneless chicken coated in Mexican
+                spices and drizzled with a sauce of your choice. The ultimate
+                finger food!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="card">
+            <img src="images/item3.png" class="card-img-top" alt="Item 3" />
+            <div class="card-body">
+              <h5 class="card-title">Quesadilla</h5>
+              <p class="card-text">
+                Tortilla (10") filled with melted mozzarella cheese, served with
+                salsa and our homemade white mexican dip. The perfect appetizer
+                indeed!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile View -->
+      <div
+        id="startersCarousel"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/Elotes.png"
+                    class="card-img-top"
+                    alt="Item 1"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Elotes</h5>
+                    <p class="card-text">
+                      Corn ribs in our special mix of spices. A classic Mexican
+                      street snack.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item2.png"
+                    class="card-img-top"
+                    alt="Item 2"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Chicken Poppers</h5>
+                    <p class="card-text">
+                      Crispy bite-sized pieces of boneless chicken coated in
+                      Mexican spices and drizzled with a sauce of your choice.
+                      The ultimate finger food!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item3.png"
+                    class="card-img-top"
+                    alt="Item 3"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Quesadilla</h5>
+                    <p class="card-text">
+                      Tortilla (10") filled with melted mozzarella cheese,
+                      served with salsa and our homemade white mexican dip. The
+                      perfect appetizer indeed!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#startersCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#startersCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="false"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu Section - Walking Tacos -->
+    <div class="container mt-5" id="walking-tacos">
+      <h1 class="section-title">Walking Tacos</h1>
+
+      <!-- Desktop View -->
+      <div class="d-none d-lg-flex menu-item-container walking-tacos-container">
+        <div class="menu-item">
+          <div class="card">
+            <img src="images/item4.png" class="card-img-top" alt="Item 4" />
+            <div class="card-body">
+              <h5 class="card-title">Tostillocos</h5>
+              <p class="card-text">
+                Crispy tortilla chips topped with pico de gallo, avocado,
+                cheese, and lime sauce for a zesty crunch.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="card">
+            <img src="images/item5.png" class="card-img-top" alt="Item 5" />
+            <div class="card-body">
+              <h5 class="card-title">Dorilocos</h5>
+              <p class="card-text">
+                Doritos loaded with cucumbers, jicama, spicy salsa, and cheese
+                for a flavorful and fun snack.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile View -->
+      <div
+        id="walkingTacosCarousel"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item4.png"
+                    class="card-img-top"
+                    alt="Item 4"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Tostillocos</h5>
+                    <p class="card-text">
+                      Crispy tortilla chips topped with pico de gallo, avocado,
+                      cheese, and lime sauce for a zesty crunch.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item5.png"
+                    class="card-img-top"
+                    alt="Item 5"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Dorilocos</h5>
+                    <p class="card-text">
+                      Doritos loaded with cucumbers, jicama, spicy salsa, and
+                      cheese for a flavorful and fun snack.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel controls -->
+        <a
+          class="carousel-control-prev"
+          href="#walkingTacosCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#walkingTacosCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu Section - Everything Birria -->
+    <div class="container mt-5" id="everything-birria">
+      <h1 class="section-title">Everything Birria</h1>
+
+      <!-- Desktop View -->
+      <div
+        id="everythingBirriaCarouselDesktop"
+        class="d-none d-lg-flex carousel slide"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="menu-item-container d-flex">
+              <!-- Birria Tacos -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item6.png"
+                    class="card-img-top"
+                    alt="Birria Tacos"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Tacos</h5>
+                    <p class="card-text">
+                      A crowd favorite. No explanation needed, you just have to
+                      try this one!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Birria Rice Bowl -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item7.png"
+                    class="card-img-top"
+                    alt="Birria Rice Bowl"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Rice Bowl</h5>
+                    <p class="card-text">
+                      Birria rice topped with pico de gallo, birria beef,
+                      pickled chili, onions, and corn.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Birria Fries -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item8.png"
+                    class="card-img-top"
+                    alt="Birria Fries"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Fries</h5>
+                    <p class="card-text">
+                      Casita’s coated fries, birria beef, pickled chili and
+                      onions, cheese sauce, and homemade white Mexican sauce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item-container d-flex">
+              <!-- Birria Nachos -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item9.png"
+                    class="card-img-top"
+                    alt="Birria Nachos"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Nachos</h5>
+                    <p class="card-text">
+                      Chips, birria beef, pickled chili and onions, cheese
+                      sauce, and homemade white Mexican sauce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#everythingBirriaCarouselDesktop"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#everythingBirriaCarouselDesktop"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Mobile View -->
+      <div
+        id="everythingBirriaCarouselMobile"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item6.png"
+                    class="card-img-top"
+                    alt="Birria Tacos"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Tacos</h5>
+                    <p class="card-text">
+                      A crowd favorite. No explanation needed, you just have to
+                      try this one!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item7.png"
+                    class="card-img-top"
+                    alt="Birria Rice Bowl"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Rice Bowl</h5>
+                    <p class="card-text">
+                      Birria rice topped with pico de gallo, birria beef,
+                      pickled chili, onions, and corn.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item8.png"
+                    class="card-img-top"
+                    alt="Birria Fries"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Fries</h5>
+                    <p class="card-text">
+                      Casita’s coated fries, birria beef, pickled chili and
+                      onions, cheese sauce, and homemade white Mexican sauce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item9.png"
+                    class="card-img-top"
+                    alt="Birria Nachos"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Birria Nachos</h5>
+                    <p class="card-text">
+                      Chips, birria beef, pickled chili and onions, cheese
+                      sauce, and homemade white Mexican sauce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#everythingBirriaCarouselMobile"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#everythingBirriaCarouselMobile"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu Section - Platters -->
+    <div class="container mt-5" id="platters">
+      <h1 class="section-title">Platters</h1>
+
+      <!-- Desktop View -->
+      <div
+        id="plattersCarouselDesktop"
+        class="d-none d-lg-flex carousel slide"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <!-- First Slide -->
+          <div class="carousel-item active">
+            <div class="menu-item-container d-flex">
+              <!-- Barkada Platter -->
+              <div class="menu-item mr-3">
+                <div class="card">
+                  <img
+                    src="images/item10.png"
+                    class="card-img-top"
+                    alt="Barkada Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Barkada Platter</h5>
+                    <p class="card-text">
+                      6 pcs Birria Tacos with consomme and 2 add-ons or dips of
+                      your choice
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Party Platter -->
+              <div class="menu-item mr-3">
+                <div class="card">
+                  <img
+                    src="images/item11.png"
+                    class="card-img-top"
+                    alt="Party Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Party Platter</h5>
+                    <p class="card-text">
+                      10 pcs Birria Tacos with consomme and 3 add-ons or dips of
+                      your choice
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Fries Platter -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item12.png"
+                    class="card-img-top"
+                    alt="Fries Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Fries Platter</h5>
+                    <p class="card-text">
+                      Birria Fries perfect for sharing (3-4 pax)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div class="carousel-item">
+            <div class="menu-item-container d-flex">
+              <!-- Nacho Platter -->
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item11.png"
+                    class="card-img-top"
+                    alt="Nacho Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Nacho Platter</h5>
+                    <p class="card-text">
+                      Birria Nachos perfect for sharing (3-4 pax)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#plattersCarouselDesktop"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#plattersCarouselDesktop"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Mobile View -->
+      <div
+        id="plattersCarouselMobile"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item10.png"
+                    class="card-img-top"
+                    alt="Barkada Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Barkada Platter</h5>
+                    <p class="card-text">
+                      6 pcs Birria Tacos with consomme and 2 add-ons or dips of
+                      your choice
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item11.png"
+                    class="card-img-top"
+                    alt="Party Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Party Platter</h5>
+                    <p class="card-text">
+                      10 pcs Birria Tacos with consomme and 3 add-ons or dips of
+                      your choice
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item12.png"
+                    class="card-img-top"
+                    alt="Fries Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Fries Platter</h5>
+                    <p class="card-text">
+                      Birria Fries perfect for sharing (3-4 pax)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="menu-item col-12">
+                <div class="card">
+                  <img
+                    src="images/item13.png"
+                    class="card-img-top"
+                    alt="Nacho Platter"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Nacho Platter</h5>
+                    <p class="card-text">
+                      Birria Nachos perfect for sharing (3-4 pax)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#plattersCarouselMobile"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#plattersCarouselMobile"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu Section - Drinks -->
+    <div class="container mt-5" id="drinks">
+      <h1 class="section-title">Drinks</h1>
+
+      <!-- Desktop View -->
+      <div
+        id="drinksCarouselDesktop"
+        class="carousel slide d-none d-lg-block"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="menu-item-container d-flex justify-content-between">
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item14.png"
+                    class="card-img-top"
+                    alt="Item 14"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Bottled Water</h5>
+                    <p class="card-text">
+                      Because staying hydrated is the latest trend—enjoy this
+                      refreshing choice that's just fancy liquid in a bottle!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item15.png"
+                    class="card-img-top"
+                    alt="Item 14"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Classic Sodas</h5>
+                    <p class="card-text">
+                      A selection of fizzy favorites that’ll tickle your taste
+                      buds and give you a delightful sugar rush, including Coke
+                      Mismo, Royal Mismo, Sprite Mismo, and San Miguel Light.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item16.png"
+                    class="card-img-top"
+                    alt="Item 15"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Lemon Series Drinks</h5>
+                    <p class="card-text">
+                      Quench your thirst with our zesty lemon drinks, featuring
+                      refreshing options like Lemon Juice, Lemon Yakult, Lemon
+                      Orange, and Lemon Mango.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item-container d-flex justify-content-between">
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item17.png"
+                    class="card-img-top"
+                    alt="Item 13"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Fruit Shakes</h5>
+                    <p class="card-text">
+                      Indulge in our creamy fruit shakes, including Mango Shake,
+                      Watermelon Shake, and Banana Shake—perfect for a sweet
+                      treat any time of the day!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-item">
+                <div class="card">
+                  <img
+                    src="images/item18.png"
+                    class="card-img-top"
+                    alt="Item 14"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Horchata</h5>
+                    <p class="card-text">
+                      Savor our delightful Horchata options, with Classic
+                      Horchata and Strawberry Horchata bringing a sweet twist to
+                      this traditional beverage.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-item"></div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#drinksCarouselDesktop"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#drinksCarouselDesktop"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Mobile View -->
+      <div
+        id="drinksCarouselMobile"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/item14.png"
+                  class="card-img-top"
+                  alt="Item 14"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Bottle Water</h5>
+                  <p class="card-text">
+                    Because staying hydrated is the latest trend—enjoy this
+                    refreshing choice that's just fancy liquid in a bottle!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/item15.png"
+                  class="card-img-top"
+                  alt="Item 15"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Sodas</h5>
+                  <p class="card-text">
+                    A selection of fizzy favorites that’ll tickle your taste
+                    buds and give you a delightful sugar rush, including Coke
+                    Mismo, Royal Mismo, Sprite Mismo, and San Miguel Light.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/item16.png"
+                  class="card-img-top"
+                  alt="Item 16"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Lemon Series Drinks</h5>
+                  <p class="card-text">
+                    Quench your thirst with our zesty lemon drinks, featuring
+                    refreshing options like Lemon Juice, Lemon Yakult, Lemon
+                    Orange, and Lemon Mango.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/item17.png"
+                  class="card-img-top"
+                  alt="Item 17"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Fruit Shakes</h5>
+                  <p class="card-text">
+                    Quench your thirst with our zesty lemon drinks, featuring
+                    refreshing options like Lemon Juice, Lemon Yakult, Lemon
+                    Orange, and Lemon Mango.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/item18.png"
+                  class="card-img-top"
+                  alt="Item 18"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Horchata</h5>
+                  <p class="card-text">
+                    Quench your thirst with our zesty lemon drinks, featuring
+                    refreshing options like Lemon Juice, Lemon Yakult, Lemon
+                    Orange, and Lemon Mango.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#drinksCarouselMobile"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#drinksCarouselMobile"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu Section - Desserts -->
+    <div class="container mt-5" id="desserts">
+      <!-- Carousel for Mobile View -->
+      <div
+        id="menuCarousel"
+        class="carousel slide d-lg-none"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h2 class="section-title">Desserts</h2>
+            <div class="menu-item">
+              <div class="card">
+                <img
+                  src="images/churros.png"
+                  class="card-img-top"
+                  alt="Item 16"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Churros</h5>
+                  <p class="card-text">
+                    Deliciously crispy on the outside and soft on the inside,
+                    these fried dough pastries are coated in cinnamon sugar and
+                    served with a rich chocolate dipping sauce for the perfect
+                    sweet treat!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <h2 class="section-title">Dips</h2>
+            <div class="menu-item">
+              <div
+                class="card"
+                style="background-color: transparent; border: none"
+              >
+                <div
+                  class="card-body d-flex flex-column align-items-center justify-content-center"
+                  style="height: 200px; background-color: transparent"
+                >
+                  <ul class="list-unstyled text-center">
+                    <li class="d-flex flex-column align-items-center mb-4">
+                      <img
+                        src="images/salsa.png"
+                        class="img-fluid"
+                        style="width: 75px; height: 75px; margin-bottom: 10px"
+                        alt="Salsa Dip"
+                      />
+                      <h6 class="mb-0">Salsa Dip - ₱35</h6>
+                    </li>
+                    <li class="d-flex flex-column align-items-center mb-4">
+                      <img
+                        src="images/mexicandip.png"
+                        class="img-fluid"
+                        style="width: 75px; height: 75px; margin-bottom: 10px"
+                        alt="White Mexican Dip"
+                      />
+                      <h5 class="mb-0</h5>
+                    </li>
+                    <li class="d-flex flex-column align-items-center">
+                      <img
+                        src="images/cheese.png"
+                        class="img-fluid"
+                        style="width: 75px; height: 75px; margin-bottom: 10px"
+                        alt="Cheese Dip"
+                      />
+                      <h6 class="mb-0">Cheese Dip - ₱35</h6>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <h2 class="section-title">Add-ons</h2>
+            <div class="menu-item">
+              <div
+                class="card"
+                style="background-color: transparent; border: none"
+              >
+                <div
+                  class="card-body d-flex flex-column align-items-center justify-content-center"
+                  style="height: 200px; background-color: transparent"
+                >
+                  <ul class="list-unstyled text-center m-0">
+                    <!-- Added m-0 to remove default margins -->
+                    <li><h6>Chili......₱35</h6></li>
+                    <li><h6>Onion......₱35</h6></li>
+                    <li><h6>Jalapeno......₱40</h6></li>
+                    <li><h6>Pico de Gallo......₱40</h6></li>
+                    <li><h6>Mango Salsa......₱45</h6></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#menuCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#menuCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="row d-none d-lg-flex">
+        <div class="col-lg-4 col-md-4">
+          <h1 class="section-title">Desserts</h1>
+          <div class="card">
+            <img src="images/churros.png" class="card-img-top" alt="Item 16" />
+            <div class="card-body">
+              <h5 class="card-title">Churros</h5>
+              <p class="card-text">
+                Deliciously crispy on the outside and soft on the inside, these
+                fried dough pastries are coated in cinnamon sugar and served
+                with a rich chocolate dipping sauce for the perfect sweet treat!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dips Section -->
+        <div class="col-lg-4 col-md-4">
+          <h2 class="section-title">Dips</h2>
+          <div class="card" style="background-color: transparent; border: none">
+            <div
+              class="card-body d-flex flex-column align-items-center justify-content-center"
+              style="height: 200px; background-color: transparent"
+            >
+              <ul class="list-unstyled text-center">
+                <li class="d-flex flex-column align-items-center mb-4">
+                  <img
+                    src="images/salsa.png"
+                    class="img-fluid"
+                    style="width: 75px; height: 75px; margin-bottom: 10px"
+                    alt="Salsa Dip"
+                  />
+                  <h6 class="mb-0">Salsa Dip - ₱35</h6>
+                </li>
+                <li class="d-flex flex-column align-items-center mb-4">
+                  <img
+                    src="images/mexicandip.png"
+                    class="img-fluid"
+                    style="width: 75px; height: 75px; margin-bottom: 10px"
+                    alt="White Mexican Dip"
+                  />
+                  <h6 class="mb-0">White Mexican Dip - ₱45</h6>
+                </li>
+                <li class="d-flex flex-column align-items-center">
+                  <img
+                    src="images/cheese.png"
+                    class="img-fluid"
+                    style="width: 75px; height: 75px; margin-bottom: 10px"
+                    alt="Cheese Dip"
+                  />
+                  <h6 class="mb-0">Cheese Dip - ₱35</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add-ons Section -->
+        <div class="col-lg-4 col-md-4">
+          <h2 class="section-title">Add-ons</h2>
+          <div class="card" style="background-color: transparent; border: none">
+            <div
+              class="card-body d-flex flex-column align-items-center justify-content-center"
+              style="height: 200px; background-color: transparent"
+            >
+              <ul class="list-unstyled text-center m-0">
+                <!-- Added m-0 to remove default margins -->
+                <li><h6>Chili......₱35</h6></li>
+                <li><h6>Onion......₱35</h6></li>
+                <li><h6>Jalapeno......₱40</h6></li>
+                <li><h6>Pico de Gallo......₱40</h6></li>
+                <li><h6>Mango Salsa......₱45</h6></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer text-center py-3">
+      <div class="container">
+        <p class="mb-0">&copy; 2024 Casita. All rights reserved.</p>
+        <p class="mb-0">
+          Follow us on <a href="#" class="text-decoration-none">Facebook</a>,
+          <a href="#" class="text-decoration-none">Instagram</a>,
+          <a href="#" class="text-decoration-none">Twitter</a>.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Continue with other menu sections (Everything Birria, Platters, Drinks, Desserts) in the same format -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
