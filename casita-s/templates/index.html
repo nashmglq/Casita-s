@@ -32,6 +32,8 @@
     <title>Casita's</title>
   </head>
  <style>
+
+      
       .image-container {
       position: relative;
       width: 100%; /* Set maximum width of the container */
@@ -45,21 +47,42 @@
       height: auto; /* Maintain aspect ratio */
     }
 
-      .nav-link {
-        margin: 0rem 0.2rem;
-        background-color: #ffc100;
-        border-radius: .5rem;
-      }
+    nav{
+      z-index: 1;
+    }
 
-      .nav-link :hover {  
-        color: black !important;
-        text-decoration: underline !important;
+      .nav-link {
+        margin: 0.2rem 0.2rem;
+        background-color: rgba(255, 193, 0, 0.8);
+        border-radius: .5rem;
+        text-align: center;
+        width: 7rem;
       }
 
       .navbar-toggler {
-        background-color: #ffc100;
+        top: -2rem;
+        background-color: rgba(255, 193, 0, 0.8);
         border-radius: .5rem;
+        position: relative;
+        z-index: 1001; /* Ensure the button stays on top */
       }
+
+      .background-pic{
+        position: relative;
+        top: 0;
+      }
+
+      .navbar-collapse {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.navbar-collapse.show {
+  display: block;
+  height: auto; /* Allow the content to expand naturally */
+}
 
       body {
         font-family: "DM Sans", sans-serif;
@@ -114,7 +137,7 @@
       </div>
       <!--UP TO HERE-->
     </nav>
-  <img src="images/bg2.jpg" alt="Background Image" />
+  <img class="background-pic" src="images/bg2.jpg" alt="Background Image" />
 </div>
       <div class = "container-fluid">
         <div class = "row mt-5 p-3" style = "background-color: #c0000b;">
