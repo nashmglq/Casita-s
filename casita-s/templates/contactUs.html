@@ -20,110 +20,132 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    
 
     <title>Casita's</title>
     <style>
       body {
-        background-image: url("images/casitas.jpg"); /* Replace with the path to your image */
+        background-image: url("images/contact-us-bg.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
         background-color: #252827;
         color: white;
         font-family: Arial, sans-serif;
-        padding-top: 80px; /* Adjust if needed */
+        padding-top: 80px;
       }
-
+    
       .navbar {
-        background-color: rgba(
-          76,
-          69,
-          69,
-          0.384
-        ); /* Semi-transparent background by default */
+        background-color: rgba(27, 26, 26, 0.853);
         transition: background-color 0.3s ease;
         font-weight: 900;
-        text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000, 0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
+        text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000,
+          0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
       }
-
+    
       .navbar .nav-link {
-        color: #ffffff; /* Ensure nav links are visible */
+        color: #ffffff;
+        transition: transform 0.3s ease, color 0.3s ease;
       }
-
-      .navbar .nav-link.about {
-        color: white;
+    
+      .navbar .nav-link:hover {
+        color: gold !important;
+        transform: scale(1.2);
       }
-
-      .navbar .nav-link.menu {
-        color: white;
-      }
-
+    
+      .navbar .nav-link.about,
+      .navbar .nav-link.menu,
       .navbar .nav-link.contact {
         color: white;
       }
-
+    
       .navbar .nav-link.about:hover,
-      .navbar .nav-link.menu:hover {
+      .navbar .nav-link.menu:hover,
+      .navbar .nav-link.contact:hover {
         color: gold !important;
       }
-
+    
       .card {
-        background-color: #1e1e1e;
+        background-color: #1e1e1ee0;
         border: none;
         border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-
+    
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+      }
+    
       h2,
       h4,
       h5 {
         color: #ffd700;
       }
-
+    
       .contact-info i {
         color: #e17a09;
+        transition: transform 0.3s ease;
       }
-
+    
+      .contact-info i:hover {
+        animation: wiggle 0.5s ease-in-out;
+      }
+    
       .contact-info h5 {
         color: white;
       }
-
+    
       .fiesta-border {
         background: linear-gradient(#ffd700);
         padding: 10px;
         border-radius: 15px;
       }
-
+    
       .text-highlight {
         color: #ffd700;
       }
-
+    
       .form-control {
         background-color: #333;
         color: white;
         border: 1px solid #ffd700;
       }
-
+    
       .form-control::placeholder {
         color: #b3b3b3;
       }
-
+    
       .btn-primary {
         background-color: #ff7043;
         border-color: #ff7043;
       }
-
+    
       .btn-primary:hover {
         background-color: #e85a28;
         border-color: #e85a28;
       }
-
+    
       .footer {
         background-color: rgba(76, 69, 69, 0.384);
       }
-
+    
       .nav-item.active .nav-link {
         color: gold !important;
+      }
+    
+      @keyframes wiggle {
+        0%, 100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(5deg);
+        }
+        50% {
+          transform: rotate(-5deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
       }
     </style>
   </head>
@@ -155,7 +177,7 @@
       <div
         class="collapse navbar-collapse"
         id="navbarNav"
-        style="margin-right: 5%"
+        style="max-height: 80px; margin-left: 2rem"
       >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -164,7 +186,7 @@
           <li class="nav-item">
             <a class="nav-link menu" href="/menu">Menu</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link contact" href="/contact">Contact Us</a>
           </li>
         </ul>

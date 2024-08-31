@@ -28,35 +28,68 @@
   </head>
 
   <style>
+    @keyframes appear-left {
+      from{
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0px);
+      }
+      
+    }
+    @keyframes appear-right {
+      from{
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0px);
+      }
+      
+    }
     .navbar {
-      background-color: rgb(
-        88,
-        0,
-        0
-      ); /* Semi-transparent background by default */
-      transition: background-color 0.3s ease;
-    }
-    .nav-link {
-      margin: 0rem 0.2rem;
-      background-color: #ffc100;
-      border-radius: 0.5rem;
-    }
+        background-color: rgb(99, 0, 0); /* Background color for the navbar */
+        font-weight: 900;
+        text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000,
+          0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
+          z-index: 1000;
+          transition: all 0.3s ease;
+          
+      }
+      .navbar .nav-link.about {
+        color: white;
+      }
 
-    .nav-link :hover {
-      color: black !important;
-      text-decoration: underline !important;
-    }
+      .navbar .nav-link.menu {
+        color: white;
+      }
 
-    .navbar-toggler {
-      background-color: #ffc100;
-      border-radius: 0.5rem;
-    }
+      .navbar .nav-link.contact {
+        color: white;
+      }
 
-    .navbar .nav-link.about:hover,
-    .navbar .nav-link.menu:hover,
-    .navbar .nav-link.contact:hover {
-      color: gold !important;
-    }
+
+      .navbar .nav-link {
+        color: #c0000b; /* Color for nav links */
+        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+      }
+
+      .navbar .nav-link:hover {
+        color: gold !important; /* Hover color for nav links */
+      }
+
+      .navbar-toggler {
+        margin-right: 1rem; /* Adjust this value as needed for spacing */
+      }
+
+.navbar .nav-link:hover {
+  color: gold !important; /* Change text color on hover */
+  transform: scale(1.2); /* Grow the text size on hover */
+}
+
     
 
     .image-container {
@@ -129,7 +162,7 @@
         padding: 7px;
         -webkit-box-shadow: -15px -17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: -15px -17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, -15px -17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 4px #fff, -15px -17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .collage-img:nth-child(2) {
@@ -171,7 +204,7 @@
         padding: 7px;
         -webkit-box-shadow: -1px -17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: -1px -17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, -1px -17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 4px #fff, -1px -17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .collage-img:nth-child(3) {
@@ -217,7 +250,7 @@
         padding: 5px;
         -webkit-box-shadow: 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 4px #fff, 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .collage-img:nth-child(4) {
@@ -261,7 +294,7 @@
         padding: 5px;
         -webkit-box-shadow: -17px 17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: -17px 17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, -17px 17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 4px #fff, -17px 17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .collage-img:nth-child(5) {
@@ -305,7 +338,7 @@
         padding: 5px;
         -webkit-box-shadow: 1px 17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 1px 17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, 1px 17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow:0 0 0 4px #fff, 1px 17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .collage-img:nth-child(6) {
@@ -349,7 +382,7 @@
         padding: 5px;
         -webkit-box-shadow: 17px 17px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 17px 17px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 0 0 8px #fff, 17px 17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 4px #fff, 17px 17px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
     .image-container .overlay-text {
@@ -378,6 +411,12 @@
       .image-container .overlay-text {
         font-size: 1.2rem !important; /* Even smaller text size for phones */
         padding: 10px !important; /* Adjust padding */
+
+      }
+    }
+    @media(max-width:500px){
+      .image-container .overlay-text{
+        box-shadow: 0 0 0 4px #fff;
       }
     }
 
@@ -421,6 +460,9 @@
       -moz-box-shadow: 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
       box-shadow: 0 0 0 8px #fff, 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
       width: 95% !important;
+      animation: appear-right linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
     }
     @media (max-width: 767px) {
       .card1 {
@@ -435,6 +477,9 @@
       z-index: 2; /* Ensure the image is properly positioned */
       width: 100%; /* Ensure the container scales with its parent */
       height: 80%; /* Ensure the container scales with its parent */
+      animation: appear-left linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
     }
     @media (max-width: 767px) {
       .front-pic-container {
@@ -487,6 +532,9 @@
 box-shadow: 0 0 0 8px #fff, -38px 31px 13px 2px rgba(0,0,0,0.75);
 width: 90% !important;
 height: 90% !important;
+animation: appear-left linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
     }
     .second-pic-container {
       display: inline-block; /* Allows transform to work properly */
@@ -514,6 +562,9 @@ height: 90% !important;
       -webkit-box-shadow: -38px 31px 13px 2px rgba(0,0,0,0.75);
       -moz-box-shadow: -38px 31px 13px 2px rgba(0,0,0,0.75);
       box-shadow: 0 0 0 8px #fff, -38px 31px 13px 2px rgba(0,0,0,0.75);
+      animation: appear-right linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
     }
     .highlight {
       font-weight: bold; /* Makes the text bold */
@@ -544,7 +595,7 @@ height: 90% !important;
           src="images/logo.png"
           alt="casita's logo"
           class="img-fluid"
-          style="max-height: 7rem; margin: auto"
+          style="max-height: 80px; margin-left: 2rem; background-color: rgb(99, 0, 0); /* Background color for the navbar */"
         />
       </a>
 
@@ -571,7 +622,7 @@ height: 90% !important;
           <li class="nav-item">
             <a class="nav-link menu" href="/menu">Menu</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link contact" href="/contact">Contact Us</a>
           </li>
         </ul>
