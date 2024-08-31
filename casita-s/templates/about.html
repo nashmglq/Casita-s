@@ -49,7 +49,31 @@
         transform: translateX(0px);
       }
       
+
+      
     }
+
+    @keyframes change-style {
+	to {  top: 2%;
+        transform: translateX(1%);
+        border-radius: 2rem;
+        width: 98%;
+    }
+}
+
+.navbar {
+	  animation: change-style linear both;
+    transition: ease-in-out 0.3s;
+    position: fixed !important;
+    top: 0; 
+    width: 100%;
+    z-index: 1030;
+}
+
+  .navbar{
+	animation-timeline: scroll();
+	animation-range: 0 150px;
+}
     .navbar {
         background-color: rgb(99, 0, 0); /* Background color for the navbar */
         font-weight: 900;
@@ -90,7 +114,9 @@
   transform: scale(1.2); /* Grow the text size on hover */
 }
 
-    
+.navbar-collapse {
+  border-radius: 1rem;
+}
 
     .image-container {
       position: relative;
@@ -227,6 +253,9 @@
         top: 15%;
         right: 5%;
         padding: 15px;
+        -webkit-box-shadow: 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 17px -17px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 0 8px #fff, 17px -17px 4px 0px rgba(0, 0, 0, 0.75);
       }
     }
 
