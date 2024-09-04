@@ -1,3 +1,5 @@
+MENU
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +29,22 @@
       /* General Styles */
       body {
         font-family: Arial, sans-serif;
+        background-color: #F8F8F8;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background-color: white; /* Background color for the navbar */
+        font-weight: 900;
+        border-bottom: 5px solid #e17a09;
+      }
+
+      .navbar .nav-link {
+        color: #c0000b !important; /* Color for nav links */
+      }
+
+      .navbar-toggler {
+        margin-right: 1rem; /* Adjust this value as needed for spacing */
       }
 
       .section-title {
@@ -37,6 +55,7 @@
         margin-bottom: 1rem;
         border-bottom: 2px solid #e17a09;
         padding-bottom: 10px;
+        color: #333;
       }
 
       /* Card Styles */
@@ -84,7 +103,7 @@
 
       .card-body p {
         font-size: 1rem;
-        color: #555;
+        color: #333;
         margin-top: 10px;
       }
 
@@ -121,32 +140,13 @@
         margin: 0; /* Remove margin to get them closer */
       }
 
-      /* Navbar Styles */
-      .navbar-brand img {
-        max-height: 65px; /* Maintains the height */
-        margin-left: 2rem; /* Keeps the left margin */
-        background-color: white; /* Background color remains white */
-        border-radius: 10px; /* Adjust this value for the roundness of the edges */
-      }
-
-      .navbar-nav .nav-link {
-        font-weight: bold;
-        color: white;
-        text-transform: uppercase;
-        margin-left: 15px;
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #ff9800;
-      }
-
       /* Carousel Control Buttons */
       .carousel-control-prev,
       .carousel-control-next {
         width: 50px; /* Set a specific width for the button */
         height: 50px; /* Set a specific height for the button */
         border-radius: 50%;
-        background-color: #e17a09; /* Button color */
+        background-color: #333; /* Button color */
         border: none; /* Remove any borders */
         position: absolute; /* Ensure absolute positioning */
         top: 50%; /* Center vertically */
@@ -180,15 +180,56 @@
       .footer a:hover {
         text-decoration: underline; /* Optional: add underline on hover */
       }
+
+      .custom-button {
+        background-color: white; /* Button background color */
+        font-weight: bold; /* Bold font */
+        border-radius: 5px; /* Rounded corners */
+        min-height: 60px; /* Set a minimum height for buttons */
+        display: flex; /* Use flex to center content */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+      }
+
+      /* Desktop Font Size */
+      .custom-button {
+        font-size: 23px; /* Font size for desktop */
+        color: #333;
+      }
+
+      /* Mobile Font Size */
+      @media (max-width: 767px) {
+        .custom-button {
+          font-size: 16px; /* Font size for mobile */
+          min-height: 50px; /* Adjust minimum height for mobile if needed */
+        }
+        .custom-button:hover {
+          background-color: #ffc100; /* Hover effect */
+        }
+      }
+
+      .custom-button:hover {
+        background-color: #ffc100; /* Hover effect */
+      }
+
+      .btn-sm {
+        padding: 0.5rem 1rem; /* Adjust button padding */
+      }
     </style>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #c0000b">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <a class="navbar-brand" href="/">
-        <img src="images/logo.png" alt="Casita's logo" class="img-fluid" />
+        <img
+          src="images/logo.png"
+          alt="casita's logo"
+          class="img-fluid"
+          style="max-height: 80px; margin-left: 2rem; background-color: white"
+        />
       </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -200,45 +241,83 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarNav"
+        style="margin-right: 5%"
+      >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#starters">STARTER'S</a>
+            <a class="nav-link Intro" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#walking-tacos">WALKING TACO'S</a>
+            <a class="nav-link menu" href="/menu">Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#everything-birria">EVERYTHING BIRRIA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#platters">PLATTERS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#drinks">DRINKS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#desserts">DESSERTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#dips">DIPS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#addons">ADD ONS</a>
+            <a class="nav-link contact" href="/contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <!-- Smooth Scrolling Script -->
+    <!-- Container for Navigation Buttons -->
+    <div class="container" style="padding-top: 10rem">
+      <div class="d-flex flex-wrap justify-content-center mb-4">
+        <a
+          href="#starters"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >STARTER'S</a
+        >
+        <a
+          href="#walking-tacos"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >WALKING TACO'S</a
+        >
+        <a
+          href="#everything-birria"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >EVERYTHING BIRRIA</a
+        >
+        <a
+          href="#platters"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >PLATTERS</a
+        >
+        <a
+          href="#drinks"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >DRINKS</a
+        >
+        <a
+          href="#desserts"
+          class="btn custom-button mx-2 mb-2 btn-sm col-5 col-md-3"
+          >DESSERTS</a
+        >
+      </div>
+    </div>
+
+    <!-- Smooth Scroll Script -->
     <script>
-      document.querySelectorAll("a.nav-link").forEach((anchor) => {
-        anchor.addEventListener("click", function (event) {
-          event.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          target.scrollIntoView({
+      // Add smooth scrolling to all links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent the default anchor click behavior
+
+          const targetId = this.getAttribute("href"); // Get the target section ID
+          const targetElement = document.querySelector(targetId); // Find the target element
+
+          // Calculate the offset position (adjust the value based on your navbar height)
+          const navbarHeight = document.querySelector(".navbar").offsetHeight;
+          const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            navbarHeight;
+
+          // Scroll to the target element smoothly with offset
+          window.scrollTo({
+            top: targetPosition,
             behavior: "smooth",
-            block: "start",
           });
         });
       });
@@ -252,11 +331,7 @@
       <div class="d-none d-lg-flex menu-item-container">
         <div class="menu-item">
           <div class="card">
-            <img
-              src="images/Elotes.png"
-              class="card-img-top"
-              alt="Item 1"
-            />
+            <img src="images/Elotes.png" class="card-img-top" alt="Item 1" />
             <div class="card-body">
               <h5 class="card-title">Elotes</h5>
               <p class="card-text">
@@ -1227,7 +1302,8 @@
                         style="width: 75px; height: 75px; margin-bottom: 10px"
                         alt="White Mexican Dip"
                       />
-                      <h5 class="mb-0</h5>
+                      <h5 class="mb-0">White Mexican Dip</h5>
+                      <!-- Corrected the closing tag -->
                     </li>
                     <li class="d-flex flex-column align-items-center">
                       <img
@@ -1367,14 +1443,63 @@
       </div>
     </div>
 
-    <footer class="footer text-center py-3">
+    <!-- Footer -->
+    <footer
+      class="text-center py-4"
+      style="
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #333;
+        color: #fff;
+      "
+    >
       <div class="container">
-        <p class="mb-0">&copy; 2024 Casita. All rights reserved.</p>
-        <p class="mb-0">
-          Follow us on <a href="#" class="text-decoration-none">Facebook</a>,
-          <a href="#" class="text-decoration-none">Instagram</a>,
-          <a href="#" class="text-decoration-none">Twitter</a>.
-        </p>
+        <div class="row">
+          <!-- Contact Us Button -->
+          <div class="col-md-4">
+            <h5>We want to hear from you!</h5>
+            <a
+              href="/contact"
+              ;
+              class="btn"
+              style="
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                width: 8rem;
+              "
+              >Contact Us</a
+            >
+          </div>
+          <!-- Navigation Links -->
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/menu" style="color: #fff">Our Menu</a></li>
+              <li><a href="/about" style="color: #fff">About Us</a></li>
+              <li><a href="/contact" style="color: #fff">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Links -->
+          <div class="col-md-4">
+            <h5>Follow Us</h5>
+            <a
+              href="https://www.facebook.com/casitasbirriakitchen"
+              style="color: #fff; margin-right: 10px"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/casitasbirriakitchen"
+              style="color: #fff; margin-right: 10px"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <p>&copy; 2024 Casita's. All rights reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
 
