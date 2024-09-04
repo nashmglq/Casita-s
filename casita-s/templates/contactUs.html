@@ -35,12 +35,24 @@
       }
     
       .navbar {
+        animation: change-style linear both;
         background-color: rgba(27, 26, 26, 0.853);
         transition: background-color 0.3s ease;
         font-weight: 900;
         text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000,
           0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
+          animation-timeline: scroll();
+          animation-range: 0 150px;
+          background-color: rgb(99, 0, 0);
       }
+
+      @keyframes change-style {
+	to {  top: 2%;
+        transform: translateX(1%);
+        border-radius: 2rem;
+        width: 98%;
+    }
+}
     
       .navbar .nav-link {
         color: #ffffff;
@@ -49,7 +61,6 @@
     
       .navbar .nav-link:hover {
         color: gold !important;
-        transform: scale(1.2);
       }
     
       .navbar .nav-link.about,
@@ -79,12 +90,13 @@
       h2,
       h4,
       h5 {
-        color: #ffd700;
+        color: white;
       }
     
       .contact-info i {
-        color: #e17a09;
+        color: white;
         transition: transform 0.3s ease;
+        text-decoration: none;
       }
     
       .contact-info i:hover {
@@ -102,12 +114,12 @@
       }
     
       .text-highlight {
-        color: #ffd700;
+        color: white;
       }
     
       .form-control {
-        background-color: #333;
-        color: white;
+        background-color: white;
+        color: black;
         border: 1px solid #ffd700;
       }
     
@@ -116,12 +128,14 @@
       }
     
       .btn-primary {
-        background-color: #ff7043;
+        background-color: #c53636;
         border-color: #ff7043;
+        border-radius: 10px;
+        transition: background-color 0.5 ease;
       }
     
       .btn-primary:hover {
-        background-color: #e85a28;
+        background-color: #9e0808;
         border-color: #e85a28;
       }
     
@@ -138,7 +152,7 @@
           transform: rotate(0deg);
         }
         25% {
-          transform: rotate(5deg);
+          transform: rotate(deg);
         }
         50% {
           transform: rotate(-5deg);
@@ -177,7 +191,6 @@
       <div
         class="collapse navbar-collapse"
         id="navbarNav"
-        style="max-height: 80px; margin-left: 2rem"
       >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -196,14 +209,20 @@
     <!-- Contact Information -->
     <div class="container mt-5 container-custom">
       <div class="row">
-        <div class="col-xl-6 mb-2">
-          <div class="card p-4 h-100">
+        <div class="col-xl-6 mb-4">
+          
+          <div class="card p-4 h-100" style = "background-color: rgb(182, 121, 1);
+          padding: 20px;
+          border-radius: 40px;
+          border: 5px solid #000000;
+          box-shadow: 0 0 0 8px #fff;">
+
             <h2 class="text-highlight">Where to find us</h2>
             <h5>NEPO CENTER 2009 ANGELES CITY, PHILIPPINES</h5>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1925.701315896727!2d120.5807317444275!3d15.136217000000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f3624e51be97%3A0x4ec0c21a41fb8107!2sCasita&#39;s%20Birria%20Kitchen!5e0!3m2!1sen!2sph!4v1722865920405!5m2!1sen!2sph"
               class="rounded-1 w-100 h-100"
-              style="border: 0"
+              style="border-radius: 10px;"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -212,8 +231,12 @@
         </div>
 
         <!-- Additional Contact Info -->
-        <div class="col-xl-6 mb-2">
-          <div class="card p-4 h-100 fiesta-border">
+        <div class="col-xl-6 mb-4">
+          <div class="card p-4 h-100 fiesta-border" style = "background-color: rgb(182, 121, 1);
+          padding: 20px;
+          border-radius: 40px;
+          border: 5px solid #000000;
+          box-shadow: 0 0 0 8px #fff;">
             <h2 class="text-center border-bottom">
               More information about Casita's
             </h2>
@@ -233,11 +256,9 @@
               </div>
 
               <div class="d-flex align-items-center mb-3">
-                <span style="color: #e17a09; text-decoration: none">
                   <span class="d-flex align-items-center nav-link">
                     <i class="fas fa-phone fa-2x mr-2"></i>
                     <h5 class="mb-0">0962-900-3752</h5>
-                  </span>
                 </span>
               </div>
 
@@ -249,7 +270,6 @@
                 >
                   <span
                     class="d-flex align-items-center"
-                    style="color: #e17a09"
                   >
                     <i class="fab fa-facebook fa-2x mr-2"></i>
                     <h5 class="mb-0">Facebook</h5>
@@ -264,7 +284,6 @@
                 >
                   <span
                     class="d-flex align-items-center"
-                    style="color: #e17a09"
                   >
                     <i class="fab fa-instagram fa-2x mr-2"></i>
                     <h5 class="mb-0">Instagram</h5>
@@ -273,10 +292,9 @@
               </div>
 
               <div class="d-flex align-items-center mb-3">
-                <a class="nav-link" href="m.me/casitasbirriakitchen">
+                <a class="nav-link" href="https://m.me/casitasbirriakitchen">
                   <span
                     class="d-flex align-items-center"
-                    style="color: #e17a09"
                   >
                     <i class="fab fa-facebook-messenger fa-2x mr-2"></i>
                     <h5 class="mb-0">Messenger</h5>
@@ -293,7 +311,12 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-xl-12">
-          <div class="card p-4 h-100">
+          <div class="card p-4 h-100" 
+          style = "background-color: rgb(182, 121, 1);
+          padding: 20px;
+          border-radius: 40px;
+          border: 5px solid #000000;
+          box-shadow: 0 0 0 8px #fff;">
             <div id="success-alert"></div>
             <form action="/" method="POST">
               <div class="form-group">
@@ -335,15 +358,67 @@
       </div>
     </div>
 
-    <footer class="footer text-center">
-      <div class="container">
-        <p class="mb-0">© 2024 Casita's. All rights reserved.</p>
+    <footer
+    class="text-center py-4 mt-4"
+    style="
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #333;
+      color: #fff;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <!-- Contact Us Button -->
+        <div class="col-md-4">
+          <h5>We want to hear from you!</h5>
+          <a
+            href="/contact"
+            class="btn"
+            style="
+              background-color: white;
+              color: black;
+              border: 1px solid black;
+              width: 8rem;
+            "
+            >Contact Us</a
+          >
+        </div>
+        <!-- Navigation Links -->
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="/menu" style="color: #fff">Our Menu</a></li>
+            <li><a href="/about" style="color: #fff">About Us</a></li>
+            <li><a href="/contact" style="color: #fff">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Social Media Links -->
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <a
+            href="https://www.facebook.com/casitasbirriakitchen"
+            style="color: #fff; margin-right: 10px"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/casitasbirriakitchen"
+            style="color: #fff; margin-right: 10px"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
       </div>
-    </footer>
+      <div class="row mt-4">
+        <div class="col-12">
+          <p>&copy; 2024 Casita's. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     <script>
       const urlParams = new URLSearchParams(window.location.search);
-      const successParams = urlParams.get("success");
+      const successParams = urlParams.get("success")
       const successAlert = document.getElementById("success-alert");
 
       if (successParams == "true") {
