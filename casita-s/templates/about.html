@@ -125,6 +125,23 @@
       position: relative;
       width: 100%;
       margin: 0 auto;
+      margin-top: 5%;
+    }
+    @media (max-width:600px){
+      .image-container{
+        margin-top: 18%;
+      }
+    }
+
+    @media (max-width:425px){
+      .image-container{
+        margin-top: 25%;
+      }
+    }
+    @media (max-width:325px){
+      .image-container{
+        margin-top: 33%;
+      }
     }
 
     .image-container img {
@@ -570,6 +587,11 @@ animation: appear-left linear;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
     }
+    @media (max-width: 767px) {
+      .card2 {
+        height: 100% !important;
+      }
+    }
     .second-pic-container {
       display: inline-block; /* Allows transform to work properly */
       position: relative;
@@ -617,7 +639,7 @@ animation: appear-left linear;
     .footer a:hover {
       text-decoration: underline;
     }
-
+  
   </style>
   <body>
     <!--Navbar class is the actual navbar, with the light(remove underline) and the size-->
