@@ -78,13 +78,13 @@
 	animation-range: 0 150px;
 }
     .navbar {
-        background-color: rgb(99, 0, 0); /* Background color for the navbar */
+        background-color: #630000; /* Background color for the navbar */
         font-weight: 900;
         text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000,
           0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
           z-index: 1000;
           transition: all 0.3s ease;
-          
+          width: 100%;
       }
       .navbar .nav-link.about {
         color: white;
@@ -114,36 +114,25 @@
 
 .navbar .nav-link:hover {
   color: gold !important; /* Change text color on hover */
-  transform: scale(1.2); /* Grow the text size on hover */
+  /* transform: scale(1.2); Grow the text size on hover */
 }
 
 .navbar-collapse {
   border-radius: 1rem;
 }
 
+.space{
+  width: 100%; /* or a specific value, e.g., 50% */
+            height: 110px; /* specify the height */
+            background-color: #630000; /* give it a background color to make it visible */
+}
     .image-container {
       position: relative;
       width: 100%;
       margin: 0 auto;
-      margin-top: 5%;
-    }
-    @media (max-width:600px){
-      .image-container{
-        margin-top: 18%;
-      }
     }
 
-    @media (max-width:425px){
-      .image-container{
-        margin-top: 25%;
-      }
-    }
-    @media (max-width:325px){
-      .image-container{
-        margin-top: 33%;
-      }
-    }
-
+    
     .image-container img {
       width: 100%;
       height: auto;
@@ -686,6 +675,7 @@ animation: appear-left linear;
     </nav>
     <!--UP TO HERE-->
     <!-- Starter -->
+     <div class="space"></div>
     <div class="image-container">
       <img src="images/background-about.png" alt="Background Image" />
       <!-- Collage Container -->
@@ -821,15 +811,63 @@ animation: appear-left linear;
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <footer class="footer text-center py-3">
+    <footer
+      class="text-center py-4"
+      style="
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #333;
+        color: #fff;
+      "
+    >
       <div class="container">
-        <p class="mb-0">&copy; 2024 Casita. All rights reserved.</p>
-        <p class="mb-0">
-          Follow us on <a href="#" class="text-decoration-none">Facebook</a>,
-          <a href="#" class="text-decoration-none">Instagram</a>,
-          <a href="#" class="text-decoration-none">Twitter</a>.
-        </p>
+        <div class="row">
+          <!-- Contact Us Button -->
+          <div class="col-md-4">
+            <h5>We want to hear from you!</h5>
+            <a
+              href="/contact"
+              class="btn"
+              style="
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                width: 8rem;
+              "
+              >Contact Us</a
+            >
+          </div>
+          <!-- Navigation Links -->
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/menu" style="color: #fff">Our Menu</a></li>
+              <li><a href="/about" style="color: #fff">About Us</a></li>
+              <li><a href="/contact" style="color: #fff">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Links -->
+          <div class="col-md-4">
+            <h5>Follow Us</h5>
+            <a
+              href="https://www.facebook.com/casitasbirriakitchen"
+              style="color: #fff; margin-right: 10px"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/casitasbirriakitchen"
+              style="color: #fff; margin-right: 10px"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <p>&copy; 2024 Casita's. All rights reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
+
   </body>
 </html>

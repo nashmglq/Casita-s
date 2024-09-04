@@ -36,12 +36,28 @@
     <style>
       /* Navbar Styles */
       .navbar {
-        background-color: white; /* Background color for the navbar */
+        animation: change-style linear both;
+        background-color: rgba(27, 26, 26, 0.853);
+        transition: background-color 0.3s ease;
         font-weight: 900;
+        text-shadow: 0.3px 0.3px 0 #000, -0.3px -0.3px 0 #000,
+          0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000;
+          animation-timeline: scroll();
+          animation-range: 0 150px;
+          background-color: rgb(99, 0, 0);
       }
 
+      @keyframes change-style {
+        to {  top: 2%;
+              transform: translateX(1%);
+              border-radius: 2rem;
+              width: 98%;
+          }
+      }
+          
+
       .navbar .nav-link {
-        color: #c0000b !important; /* Color for nav links */
+        color: white !important; /* Color for nav links */
       }
 
       .navbar .nav-link:hover {
@@ -104,6 +120,7 @@
       /* Image Wrapper Styles */
       .image-wrapper {
         border: 5px solid #e17a09; /* Border color */
+        border-radius: 10px;
         padding: 10px; /* Add padding to create a gap */
         display: inline-block; /* Ensure the border wraps tightly around the image */
         width: 100%; /* Full width for the wrapper */
@@ -195,6 +212,7 @@
       }
       .custom-image-wrapper {
         border: 5px solid #e17a09; /* Border color */
+        border-radius: 10px;
         padding: 10px; /* Optional padding for spacing */
         overflow: hidden; /* Ensure the image stays within the border */
         text-align: center; /* Center the text within the image wrapper */
@@ -327,7 +345,7 @@
           src="images/logo.png"
           alt="casita's logo"
           class="img-fluid"
-          style="max-height: 80px; margin-left: 2rem; background-color: white"
+          style="max-height: 80px; margin-left: 2rem; background-color: rgb(99, 0, 0);"
         />
       </a>
 
@@ -633,7 +651,7 @@
           <div class="col-md-4">
             <h5>We want to hear from you!</h5>
             <a
-              href="/contactUs"
+              href="/contact"
               class="btn"
               style="
                 background-color: white;
@@ -650,7 +668,7 @@
             <ul class="list-unstyled">
               <li><a href="/menu" style="color: #fff">Our Menu</a></li>
               <li><a href="/about" style="color: #fff">About Us</a></li>
-              <li><a href="/contactUs" style="color: #fff">Contact</a></li>
+              <li><a href="/contact" style="color: #fff">Contact</a></li>
             </ul>
           </div>
           <!-- Social Media Links -->
