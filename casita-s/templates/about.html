@@ -525,17 +525,21 @@
       border: 5px solid #000000;
     }
     .card1 {
-      background-color: #03940f;
-      margin-top: 2%;
-      height: 85% !important;
-      -webkit-box-shadow: 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
-      box-shadow: 0 0 0 8px #fff, 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
-      width: 95% !important;
-      animation: appear-right linear;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
-    }
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  border: 5px solid #000000;
+  background-color: #03940f;
+  margin-top: 2%;
+  height: 85% !important;
+  -webkit-box-shadow: 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0 8px #fff, 21px 27px 0px 4px rgba(0, 0, 0, 0.75);
+  width: 95% !important;
+  animation: appear-right 1s linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
     @media (max-width: 767px) {
       .card1 {
         margin-top: -20px;
@@ -894,10 +898,10 @@ animation: appear-left linear;
         </div>
       </div>
     </footer>
-    <script>
-      function myFunction(x) {
-        x.classList.toggle("change");
-      }
-    </script>
+<script>
+  function myFunction(x) {
+    x.classList.toggle("change");
+  }
+</script>
   </body>
 </html>
